@@ -1,0 +1,7 @@
+name: mruby-games
+description: Games class
+author: yuuki
+website: https://github.com/yuuki/mruby-games
+protocol: git
+repository: https://github.com/yuuki/mruby-games.git
+license: MIT
