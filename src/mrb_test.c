@@ -79,11 +79,20 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        glClearColor(0.6, 0.8, 0.8, 1.0);
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
+
+        glColor4f(1.0, 0.0, 0.0, 1.0);
+
+        glBegin(GL_TRIANGLES);
+        glVertex2f(   0,  0.5);
+        glVertex2f(-0.5, -0.5);
+        glVertex2f( 0.5, -0.5);
+        glEnd();
 
         /* Poll for and process events */
         glfwPollEvents();
@@ -92,6 +101,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
     glfwTerminate();
     return mrb_nil_value();
 }
+
 void mrb_mruby_games_gem_init(mrb_state *mrb)
 {
   struct RClass *omegas;
