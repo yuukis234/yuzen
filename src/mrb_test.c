@@ -45,17 +45,6 @@ static mrb_value mrb_games_init(mrb_state *mrb, mrb_value self)
   return self;
 }
 
-static mrb_value mrb_games_hello(mrb_state *mrb, mrb_value self)
-{
-  mrb_games_data *data = DATA_PTR(self);
-
-  return mrb_str_new(mrb, data->str, data->len);
-}
-
-static mrb_value mrb_games_hi(mrb_state *mrb, mrb_value self)
-{
-  return mrb_str_new_cstr(mrb, "hi!!");
-}
 
 static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
 {
@@ -108,8 +97,6 @@ void mrb_mruby_games_gem_init(mrb_state *mrb)
   struct RClass *omegas;
   omegas = mrb_define_class(mrb, "Omegas", mrb->object_class);
   mrb_define_method(mrb, omegas, "initialize", mrb_games_init, MRB_ARGS_REQ(1));
-  mrb_define_method(mrb, omegas, "hello", mrb_games_hello, MRB_ARGS_NONE());
-  mrb_define_class_method(mrb, omegas, "hi", mrb_games_hi, MRB_ARGS_NONE());
   mrb_define_class_method(mrb, omegas, "view", mrb_games_view, MRB_ARGS_NONE());
   DONE;
 }
