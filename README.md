@@ -25,3 +25,19 @@ p t.bye
 ## License
 under the MIT License:
 - see LICENSE file
+
+
+## Testしてほしいところ。
+
+開発環境: Ubuntu
+glfwとglをインストールしてください。
+rakeしたら、
+```
+./mruby/bin/mirb
+```
+でirbが起動するのでできるので
+```
+Omega.view
+```
+
+をすると画面が出ます。ここでポリゴンショックが起こります
