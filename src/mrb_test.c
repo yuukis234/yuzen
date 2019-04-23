@@ -92,7 +92,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
     return mrb_nil_value();
 }
 
-void mrb_mruby_games_gem_init(mrb_state *mrb)
+void mrb_omegas_gem_init(mrb_state *mrb)
 {
   struct RClass *omegas;
   omegas = mrb_define_class(mrb, "Omegas", mrb->object_class);
@@ -101,6 +101,6 @@ void mrb_mruby_games_gem_init(mrb_state *mrb)
   DONE;
 }
 
-void mrb_mruby_games_gem_final(mrb_state *mrb)
+void mrb_omegas_gem_final(mrb_state *mrb)
 {
 }

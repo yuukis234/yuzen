@@ -63,9 +63,9 @@ void mrb_mruby_games_gem_init(mrb_state *mrb)
   mrb_define_method(mrb, games, "hello", mrb_games_hello, MRB_ARGS_NONE());
   mrb_define_class_method(mrb, games, "hi", mrb_games_hi, MRB_ARGS_NONE());
   DONE;
+  mrb_omegas_gem_init(mrb);
 }
 
 void mrb_mruby_games_gem_final(mrb_state *mrb)
 {
 }
-
