@@ -5,9 +5,20 @@ class Games
 end
 
 class Gameloop
+  def self.main_loop
+
+  end
 end
 
 class Window
+  def self.init(width,height, title, monitor, share)
+    puts (width)
+    puts (height)
+    puts (title)
+    puts (monitor)
+    puts (share)
+    puts ("initialize!")
+  end
 end
 
 class Context
