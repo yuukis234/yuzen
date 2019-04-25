@@ -6,7 +6,7 @@ end
 
 class Gameloop
   def self.main_loop
-
+    puts "test"
   end
 end
 
