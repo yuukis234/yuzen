@@ -9,7 +9,7 @@ test
 ###intorduction
 ゲームのメインループを制御するクラス。
 このループ内でWindow, Context, Vulkan, Monitor, Inputを使った制御を行う。
-test
+
 
 ##Window
 ###introduction
