@@ -1,7 +1,7 @@
 #Introduction
 
-test
-test
+プログラマーがゲームロジックを再現しやすく、よりよいゲーム作成ができるようにするフレームワーク
+表現しやすい環境を整える。
 
 #使うオブジェクト集
 
@@ -26,6 +26,8 @@ test
 
 ##Monitor
 ###introduction
+表示を制御するクラス
 
 ##Input
 ###introduction
+入力制御をしてくれるクラス

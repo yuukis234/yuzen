@@ -103,6 +103,7 @@ void mrb_window_init(mrb_state *mrb)
   mrb_define_method(mrb, window, "initialize", mrb_games_init, MRB_ARGS_REQ(1));
   mrb_define_class_method(mrb, window, "view", mrb_games_view, MRB_ARGS_NONE());
   mrb_define_class_method(mrb, window, "windowconf", mrb_games_window, MRB_ARGS_NONE());
+  mrb_define_class_method(mrb, window, "test", mrb_games_window, MRB_ARGS_NONE());
   DONE;
 }
 

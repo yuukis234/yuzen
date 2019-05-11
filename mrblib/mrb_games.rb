@@ -6,18 +6,17 @@ end
 
 class Gameloop
   def self.main_loop
-    puts "test"
+    #windowの初期化
+    #windowをメインループさせる。
   end
 end
 
 class Window
-  def self.init(width,height, title, monitor, share)
-    puts (width)
-    puts (height)
-    puts (title)
-    puts (monitor)
-    puts (share)
+  def self.init()
     puts ("initialize!")
+  end
+
+  def main_loop()
   end
 end
 
