@@ -5,7 +5,9 @@ MRuby::Build.new do |conf|
   conf.enable_test
 
   conf.linker do |linker|
-    linker.libraries = ["glfw3", "GL", "m", "dl", "Xinerama", "Xrandr", "Xi", "Xcursor", "X11", "Xxf86vm", "pthread"]
+    linker.libraries = ["glfw3", "GL", "m", "dl",
+                        "Xinerama", "Xrandr", "Xi",
+                        "Xcursor", "X11", "Xxf86vm", "pthread", "SDL2"]
   end
 
   if ENV['DEBUG'] == 'true'

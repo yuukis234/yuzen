@@ -5,18 +5,19 @@ class Games
 end
 
 class Gameloop
+  # ゲームを起動を担うクラス
+  # ここで、Window, Context, Vulkan, Monitor, Keybordを呼び出す
+  # 上記のクラスを使って、ゲームを作っていく。
   def self.main_loop
     #windowの初期化
     #windowをメインループさせる。
+    Window.view
   end
 end
 
 class Window
   def self.init()
     puts ("initialize!")
-  end
-
-  def main_loop()
   end
 end
 
