@@ -46,10 +46,6 @@ static mrb_value mrb_games_init(mrb_state *mrb, mrb_value self)
   return self;
 }
 
-static mrb_value mrb_games_window(mrb_state *mrb, mrb_value self)
-{
-  return mrb_nil_value();
-}
 
 static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
 {
@@ -108,8 +104,6 @@ void mrb_window_init(mrb_state *mrb)
   window = mrb_define_class(mrb, "Window", mrb->object_class);
   mrb_define_method(mrb, window, "initialize", mrb_games_init, MRB_ARGS_REQ(2));
   mrb_define_class_method(mrb, window, "view", mrb_games_view, MRB_ARGS_NONE());
-  mrb_define_class_method(mrb, window, "windowconf", mrb_games_window, MRB_ARGS_NONE());
-  mrb_define_class_method(mrb, window, "test", mrb_games_window, MRB_ARGS_NONE());
   mrb_define_method(mrb, window, "tests", bar_method, MRB_ARGS_NONE());
   DONE;
 }
