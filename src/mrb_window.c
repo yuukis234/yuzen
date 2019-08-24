@@ -52,10 +52,12 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
   GLFWwindow* window;
 
     /* Initialize the library */
+    /* ここでゲーム自体を初期化します。ここでイニシャライズできなければnilを返します。*/
     if (!glfwInit())
         return mrb_nil_value();
 
     /* Create a windowed mode window and its OpenGL context */
+    /* ここで画面を設定します。*/
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
     if (!window)
     {
@@ -67,6 +69,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
     glfwMakeContextCurrent(window);
 
     /* Loop until the user closes the window */
+    /* ここでメインロジックをループさせます。*/
     while (!glfwWindowShouldClose(window))
     {
         glClearColor(0.6, 0.8, 0.8, 1.0);
@@ -89,6 +92,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
         glfwPollEvents();
     }
 
+    /* ここでゲーム自体を終了させます。*/
     glfwTerminate();
     return mrb_nil_value();
 }
