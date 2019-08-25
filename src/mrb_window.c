@@ -94,7 +94,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
         glVertex2f( 0.5, -0.5);
         glEnd();
 
-        /* windowをbuffewから交換シアmス*/
+        /* windowをbuffewから交換します。*/
         glfwSwapBuffers(window);
         /* Poll for and process events */
         /* マウスの操作などのイベントを取り出し、それを記録します。*/
