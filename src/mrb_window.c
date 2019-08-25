@@ -46,7 +46,13 @@ static mrb_value mrb_games_init(mrb_state *mrb, mrb_value self)
   return self;
 }
 
-
+/* TODO:コメントを作り終えたら変更する。*/
+/* キーを押した時に起こすメソッド*/
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+  const char* key_name = glfwGetKeyName(GLFW_KEY_W, 0);
+  printf("Press %s to move forward", key_name);
+}
 static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
 {
   GLFWwindow* window;
@@ -83,6 +89,9 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
       /* windowを入れ替える。 */
       glfwSwapBuffers(window);
 
+      /* ここで、wを押したら、標準出力をしてくれる。*/
+      glfwSetKeyCallback(window, key_callback);
+
       /*図形の色を変えます。*/
       glColor4f(1.0, 0.0, 0.0, 1.0);
 
@@ -98,7 +107,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
       glfwSwapBuffers(window);
       /* Poll for and process events */
       /* マウスの操作などのイベントを取り出し、それを記録します。*/
-      glfwPollEvents();
+      glfwWaitEventsTimeout(1);
   }
 
   /* ここでゲーム自体を終了させます。*/
