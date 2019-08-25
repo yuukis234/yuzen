@@ -47,7 +47,7 @@ static mrb_value mrb_games_init(mrb_state *mrb, mrb_value self)
 }
 
 /* TODO:コメントを作り終えたら変更する。*/
-/* キーを押した時に起こすメソッド*/
+/* wキーを押すと、標準出力で「Press w to move forward」と出ます。 */
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
   const char* key_name = glfwGetKeyName(GLFW_KEY_W, 0);
