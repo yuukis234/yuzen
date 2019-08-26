@@ -53,6 +53,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
   const char* key_name = glfwGetKeyName(GLFW_KEY_W, 0);
   printf("Press %s to move forward", key_name);
 }
+
+/* TODO:コメントを作り終えたら変更する。*/
+/* メイン関数*/
 static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
 {
   GLFWwindow* window;

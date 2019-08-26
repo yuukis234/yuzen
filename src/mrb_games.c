@@ -69,6 +69,7 @@ void mrb_mruby_games_gem_init(mrb_state *mrb)
   test_init(mrb);
   mrb_omegas_gem_init(mrb);
   mrb_window_init(mrb);
+  mrb_objects_init(mrb);
 }
 
 void mrb_mruby_games_gem_final(mrb_state *mrb)
