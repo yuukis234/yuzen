@@ -1,5 +1,6 @@
 #include "mruby.h"
 #include "mruby/data.h"
+#include "mruby/array.h"
 #include "mrb_games.h"
 
 #define DONE mrb_gc_arena_restore(mrb, 0);
@@ -36,18 +37,29 @@ static mrb_value mrb_object_init (mrb_state *mrb, mrb_value self)
   return self;
 }
 
-static mrb_value create_object(mrb_state *mrb, mrb_value self)
+static mrb_value puts_str(mrb_state *mrb, mrb_value self)
 {
   mrb_games_data *data = DATA_PTR(self);
   printf("%s\n", data->str);
   return mrb_nil_value();
 }
 
+static mrb_value create_object(mrb_state *mrb, mrb_value self)
+{
+  char *str;
+  mrb_value test3 = mrb_ary_new(mrb);
+  mrb_int lens = 1;
+  mrb_get_args(mrb, "z|A", &str,  &test3);
+  printf("%i\n", mrb_ary_ref(mrb, test3, lens));
+  printf("%s\n", str);
+  return mrb_nil_value();
+}
 
 void mrb_objects_init(mrb_state *mrb) {
   struct RClass *games;
   games = mrb_define_class(mrb, "Game_Object", mrb->object_class);
   mrb_define_method(mrb, games, "initialize", mrb_object_init, MRB_ARGS_REQ(1));
+  mrb_define_method(mrb, games, "puts_str", puts_str, MRB_ARGS_REQ(1));
   mrb_define_method(mrb, games, "create_object", create_object, MRB_ARGS_NONE());
   DONE;
 }
