@@ -60,7 +60,7 @@ void mrb_objects_init(mrb_state *mrb) {
   games = mrb_define_class(mrb, "Game_Object", mrb->object_class);
   mrb_define_method(mrb, games, "initialize", mrb_object_init, MRB_ARGS_REQ(1));
   mrb_define_method(mrb, games, "puts_str", puts_str, MRB_ARGS_REQ(1));
-  mrb_define_method(mrb, games, "create_object", create_object, MRB_ARGS_NONE());
+  mrb_define_method(mrb, games, "create_object", create_object, MRB_ARGS_REQ(2));
   DONE;
 }
 
