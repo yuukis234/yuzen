@@ -2,6 +2,7 @@
 #include "mruby/data.h"
 #include "mruby/array.h"
 #include "mrb_games.h"
+#include <GLFW/glfw3.h>
 
 #define DONE mrb_gc_arena_restore(mrb, 0);
 
@@ -55,12 +56,34 @@ static mrb_value create_object(mrb_state *mrb, mrb_value self)
   return mrb_nil_value();
 }
 
+static mrb_value create_triangle(mrb_state *mrb, mrb_value self) {
+  /*背景の色を変更する*/
+  glClearColor(0.6, 0.8, 1.0, 1.0);
+  /* Render here */
+  /*バッファを初期化するカラー情報を設定*/
+  glClear(GL_COLOR_BUFFER_BIT);
+
+  /*図形の色を変えます。*/
+  glColor4f(1.0, 0.0, 0.0, 1.0);
+
+  /*glBeginで図形を初期化*/
+  glBegin(GL_TRIANGLES);
+  /*glVertex2fで頂点を指定*/
+  glVertex2f(   0,  0.5);
+  glVertex2f(-0.5, -0.5);
+  glVertex2f( 0.5, -0.5);
+  glEnd();
+
+  return mrb_nil_value();
+}
+
 void mrb_objects_init(mrb_state *mrb) {
   struct RClass *games;
   games = mrb_define_class(mrb, "Game_Object", mrb->object_class);
   mrb_define_method(mrb, games, "initialize", mrb_object_init, MRB_ARGS_REQ(1));
   mrb_define_method(mrb, games, "puts_str", puts_str, MRB_ARGS_REQ(1));
   mrb_define_method(mrb, games, "create_object", create_object, MRB_ARGS_REQ(2));
+  mrb_define_method(mrb, games, "create_triangle", create_triangle, MRB_ARGS_NONE());
   DONE;
 }
 
