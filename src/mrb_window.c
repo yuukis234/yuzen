@@ -82,15 +82,14 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
     /* TODO:このループをループクラスとして作る*/
     while (!glfwWindowShouldClose(window))
     {
+      /* Swap front and back buffers */
+      /* windowを入れ替える。 */
+      glfwSwapBuffers(window);
         /*背景の色を変更する*/
         glClearColor(0.6, 0.8, 1.0, 1.0);
         /* Render here */
         /*バッファを初期化するカラー情報を設定*/
         glClear(GL_COLOR_BUFFER_BIT);
-
-        /* Swap front and back buffers */
-        /* windowを入れ替える。 */
-        glfwSwapBuffers(window);
 
         /*図形の色を変えます。*/
         glColor4f(1.0, 0.0, 0.0, 1.0);
@@ -103,8 +102,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
         glVertex2f( 0.5, -0.5);
         glEnd();
 
-        /* windowをbuffewから交換します */
-        glfwSwapBuffers(window);
+        
         /* Poll for and process events */
         /* マウスの操作などのイベントを取り出し、それを記録します。*/
         /* ここを消すと描画がめちゃくちゃ早いポケモンフラッシュになる。*/
