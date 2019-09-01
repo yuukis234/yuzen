@@ -37,7 +37,8 @@ rakeしたら、
 ```
 でirbが起動するのでできるので
 ```
-Omega.view
+tests = Game_Object.new("test")
+Window.view(tests)
 ```
 
-をすると画面が出ます。ここでポリゴンショックが起こります
+をすると画面と三角形が出ます。
