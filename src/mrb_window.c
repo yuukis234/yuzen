@@ -52,7 +52,7 @@ static mrb_value mrb_games_init(mrb_state *mrb, mrb_value self)
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
   const char* key_name = glfwGetKeyName(GLFW_KEY_W, 0);
-  printf("Press %s to move forward", key_name);
+  printf("Press %s to move forward\n", key_name);
 }
 
 /* TODO:コメントを作り終えたら変更する。*/
@@ -86,12 +86,13 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
     {
       /* Swap front and back buffers */
       /* windowを入れ替える。 */
+      glfwSetKeyCallback(window, key_callback);
       glfwSwapBuffers(window);
       mrb_funcall(mrb, tests, "create_triangle", 0);
         /* Poll for and process events */
         /* マウスの操作などのイベントを取り出し、それを記録します。*/
         /* ここを消すと描画がめちゃくちゃ早いポケモンフラッシュになる。*/
-        glfwPollEvents();
+        glfwWaitEventsTimeout(1);
     }
 
     /* ここでゲーム自体を終了させます。*/
