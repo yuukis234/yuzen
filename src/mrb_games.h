@@ -8,7 +8,6 @@
 #define MRB_GAMES_H
 
 void mrb_mruby_games2_gem_init(mrb_state *mrb);
-void mrb_omegas_gem_init(mrb_state *mrb);
 void mrb_window_init(mrb_state *mrb);
 void mrb_objects_init(mrb_state *mrb);
 
