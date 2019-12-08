@@ -15,7 +15,11 @@
 
 #define DONE mrb_gc_arena_restore(mrb, 0);
 
-int top = 1;
+float top = 1;
+float one = -0.5;
+float two = -0.5;
+float three = 1.0;
+float four = -1.0;
 
 typedef struct {
   char *str;
@@ -54,13 +58,13 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 {
   const char* key_name = glfwGetKeyName(GLFW_KEY_W, 0);
   printf("Press %s to move forward\n", key_name);
-  if (key == GLFW_KEY_W && top == 1){
+  if (key == GLFW_KEY_W && top == 1.0){
     top = 0;
-    printf("%i\n", top);
+    printf("%f\n", top);
     glfwWaitEvents();
-  } else if (key == GLFW_KEY_W && top == 0){
+  } else if (key == GLFW_KEY_W && top == 0.0){
     top = 1;
-    printf("%i\n", top);
+    printf("%f\n", top);
     glfwWaitEvents();
   }
 }
@@ -108,8 +112,8 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
       glBegin(GL_TRIANGLES);
       /*glVertex2fで頂点を指定*/
       glVertex2f(   0,  top);
-      glVertex2f(-0.5, -0.5);
-      glVertex2f( 0.5, -0.5);
+      glVertex2f( one, two);
+      glVertex2f( three, four);
       glEnd();
 
       glfwSetKeyCallback(window, key_callback);
