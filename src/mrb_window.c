@@ -120,7 +120,7 @@ static mrb_value mrb_games_view(mrb_state *mrb, mrb_value self)
         /* Poll for and process events */
         /* マウスの操作などのイベントを取り出し、それを記録します。*/
         /* ここを消すと描画がめちゃくちゃ早いポケモンフラッシュになる。*/
-        glfwPollEvents();
+      glfwPollEvents();
     }
 
     /* ここでゲーム自体を終了させます。*/
