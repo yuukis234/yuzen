@@ -1,4 +1,4 @@
-# mruby-games   [![Build Status](https://travis-ci.org/yuuki/mruby-games.svg?branch=master)](https://travis-ci.org/yuuki/mruby-games)
+# yuzen   [![Build Status](https://travis-ci.org/yuuki/mruby-games.svg?branch=master)](https://travis-ci.org/yuuki/mruby-games)
 Games class
 ## install by mrbgems
 - add conf.gem line to `build_config.rb`
